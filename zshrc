@@ -138,7 +138,7 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 antigen apply
 
 # work around: fast syntax highlighting may crash zsh without this
-FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
+# FAST_HIGHLIGHT[chroma-git]="chroma/-ogit.ch"
 
 # options
 unsetopt correct_all
@@ -209,7 +209,7 @@ fi
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ -z "$TMUX" && "$PUTTY" -ne "1" ]] ; then
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
    tmux attach || tmux new
 fi
 
