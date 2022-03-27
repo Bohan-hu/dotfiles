@@ -1,4 +1,5 @@
 # Antigen: https://github.com/zsh-users/antigen
+alias ls='ls --color'
 ANTIGEN="$HOME/.local/bin/antigen.zsh"
 
 # Install antigen.zsh if not exist
@@ -90,7 +91,7 @@ antigen use prezto
 # default bundles
 antigen bundle rupa/z z.sh
 antigen bundle Vifon/deer
-antigen bundle zdharma/fast-syntax-highlighting
+#antigen bundle zdharma/fast-syntax-highlighting
 # antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle willghatch/zsh-cdr
@@ -213,9 +214,10 @@ if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
    tmux attach || tmux new
 fi
 
+[ -f ~/scripts/eda.sh ] && source ~/scripts/eda.sh
 # Personal configurations
 source ~/scripts/alias.sh
 source ~/scripts/path.sh
 source ~/scripts/var.sh
 #source ~/scripts/wsl_ip.sh # WSL specific
-[ -f ~/scripts/eda.sh ] && source ~/scripts/eda.sh
+source /opt/Xilinx/Vivado/2019.1/settings64.sh
