@@ -1,32 +1,7 @@
 # Antigen: https://github.com/zsh-users/antigen
-ANTIGEN="$HOME/.local/bin/antigen.zsh"
-
-# Install antigen.zsh if not exist
-if [ ! -f "$ANTIGEN" ]; then
-        echo "Installing antigen ..."
-        [ ! -d "$HOME/.local" ] && mkdir -p "$HOME/.local" 2> /dev/null
-        [ ! -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin" 2> /dev/null
-        # [ ! -f "$HOME/.z" ] && touch "$HOME/.z"
-        URL="http://git.io/antigen"
-        TMPFILE="/tmp/antigen.zsh"
-        if [ -x "$(which curl)" ]; then
-                curl -L "$URL" -o "$TMPFILE"
-        elif [ -x "$(which wget)" ]; then
-                wget "$URL" -O "$TMPFILE"
-        else
-                echo "ERROR: please install curl or wget before installation !!"
-                exit
-        fi
-        if [ ! $? -eq 0 ]; then
-                echo ""
-                echo "ERROR: downloading antigen.zsh ($URL) failed !!"
-                exit
-        fi;
-        echo "move $TMPFILE to $ANTIGEN"
-        mv "$TMPFILE" "$ANTIGEN"
-fi
-
-
+alias ls='gls --color'
+alias python='python3'
+ANTIGEN="$HOME/.repo/antigen/bin/antigen.zsh"
 
 # Load local bash/zsh compatible settings
 INIT_SH_NOFUN=1
@@ -90,11 +65,11 @@ antigen use prezto
 # default bundles
 antigen bundle rupa/z z.sh
 antigen bundle Vifon/deer
-antigen bundle zdharma/fast-syntax-highlighting
-# antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle zdharma/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
 
 antigen bundle willghatch/zsh-cdr
-# antigen bundle zsh-users/zaw
+antigen bundle zsh-users/zaw
 
 # check login shell
 if [[ -o login ]]; then
@@ -209,13 +184,29 @@ fi
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] ; then
    tmux attach || tmux new
 fi
 
+# [ -f ~/scripts/eda.sh ] && source ~/scripts/eda.sh
 # Personal configurations
 source ~/scripts/alias.sh
 source ~/scripts/path.sh
 source ~/scripts/var.sh
 #source ~/scripts/wsl_ip.sh # WSL specific
-[ -f ~/scripts/eda.sh ] && source ~/scripts/eda.sh
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/hubohan/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/hubohan/miniforge3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/hubohan/miniforge3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/hubohan/miniforge3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+#

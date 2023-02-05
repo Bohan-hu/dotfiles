@@ -11,13 +11,15 @@ alias get6="ifconfig | awk '/inet6 2409/ {print $2}'"
 alias ts='tmux a -t ssh || tmux new-session -s ssh'
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias vimn='vim -u NONE'
-alias gs='git status'
+alias gs='git status 2>/dev/null'
 alias gb='git branch'
 alias ga='git add'
 alias gc='git commit'
 alias gsw='git switch'
 alias cdsdi='cd ~/rsyncfile/chipyard-sdi'
 alias gsv='git status | vim -'
+alias cddva='cd ~/OneDrive/GT\ Course/Archive/DVA/'
+alias cdd='cd ~/6242/hw/'
 
 # Alias rm
 # alias rm=/home/hubohan/rm.sh
