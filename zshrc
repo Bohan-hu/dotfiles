@@ -217,7 +217,8 @@ fi
 [ -f ~/scripts/eda.sh ] && source ~/scripts/eda.sh
 # Personal configurations
 source ~/scripts/alias.sh
-source ~/scripts/path.sh
 source ~/scripts/var.sh
+source ~/scripts/path.sh
 #source ~/scripts/wsl_ip.sh # WSL specific
 source /opt/Xilinx/Vivado/2019.1/settings64.sh
+source ~/scripts/expand_dots.sh
