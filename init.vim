@@ -29,6 +29,7 @@ call plug#begin('~/.config/vim_plug/plugged')
     Plug 'wakatime/vim-wakatime'
     Plug 'jiangmiao/auto-pairs'
     Plug 'easymotion/vim-easymotion'
+    Plug 'christoomey/vim-tmux-navigator'
     " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
     "Plug 'puremourning/vimspector'
 call plug#end()
